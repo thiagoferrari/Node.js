@@ -4,9 +4,30 @@ const express = require("express");
 
 const server = express()
 
-// req (request é o que é passado na barra do browser, no caso do post o req é oculto!)
+// PASSAGEM DE PARÂMETROS NA WEB:
+// Query params = ?teste=1
+// Route params = /users/1
+// Request body = { "name": "Thiago", "email": "thiago@gmail.com" }
+
+
+// CONSUMINDO DE QUERY PARAMS: (digite http://localhost:3000/teste?nome=Thiago)
+
 server.get('/teste', (req, res) => {
-    return res.json({ message: 'hello world' })
+    //const nome = req.query.nome
+    const { nome } = req.query
+
+    return res.json({ message: `Hello ${nome}` })
 })
+
+
+
+// CONSUMINDO DE ROUTE PARAMS: (digite http://localhost:3000/users/3)
+server.get('/users/:id', (req, res) => {
+    //const id = req.params.id
+    const { id } = req.params
+
+    return res.json({ message: `Buscando o usuário ${id}...` })
+})
+
 
 server.listen(3000)
