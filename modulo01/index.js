@@ -22,11 +22,13 @@ server.get('/teste', (req, res) => {
 
 
 // CONSUMINDO DE ROUTE PARAMS: (digite http://localhost:3000/users/3)
-server.get('/users/:id', (req, res) => {
-    //const id = req.params.id
-    const { id } = req.params
+const users = ['Thiago', 'Cláudio', 'Victor']
+server.get('/users/:index', (req, res) => {
+    
+    // pegando o user a partir do index inserido no array:
+    const { index } = req.params
 
-    return res.json({ message: `Buscando o usuário ${id}...` })
+    return res.json({ message: `user correspondente a este index: ${users[index]}` })
 })
 
 
