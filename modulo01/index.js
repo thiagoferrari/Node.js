@@ -22,7 +22,7 @@ server.get('/teste', (req, res) => {
 
 
 // CONSUMINDO DE ROUTE PARAMS: (digite http://localhost:3000/users/3)
-const users = ['Thiago', 'Cláudio', 'Victor']
+const users = ['Thiago', 'Mateus', 'Victor']
 server.get('/users/:index', (req, res) => {
     
     // pegando o user a partir do index inserido no array:
